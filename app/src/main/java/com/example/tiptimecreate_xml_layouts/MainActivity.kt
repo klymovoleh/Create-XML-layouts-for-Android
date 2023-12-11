@@ -18,7 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculateTip(){
         val cost = binding.costOfService.text.toString().toDoubleOrNull()
-        if (cost == null) {
+        if (cost == null || cost == 0.0) {
+            displayTip(0.0)
             binding.tipResult.text = ""
             return
         }
@@ -29,13 +30,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         var tip = cost * tipPercentage
-        val roundUp = binding.roundUpSwitch.isChecked
-        if (roundUp) {
+        if (binding.roundUpSwitch.isChecked) {
             tip = ceil(tip)
         }
-
+        displayTip(tip)
+    }
+    private fun displayTip(tip: Double) {
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
-
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
     }
 }

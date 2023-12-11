@@ -11,8 +11,10 @@
         android:id="@+id/cost_of_service"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
+        android:autofillHints=""
         android:hint="@string/cost_of_service"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
         android:textColorHint="#8D6E63"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,10 +60,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:checked="true"
+        android:minHeight="48dp"
         android:text="@string/round_up_tip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/tip_options"
-        app:layout_constraintTop_toBottomOf="@id/tip_options" />
+        app:layout_constraintTop_toBottomOf="@id/tip_options"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <Button
         android:id="@+id/calculate_button"
